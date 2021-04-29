@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_total"
+    app:startDestination="@id/f2">
+    <fragment
+        android:id="@+id/world"
+        android:name="com.example.pp.world"
+        android:label="fragment_world"
+        tools:layout="@layout/fragment_world" >
+        <action
+            android:id="@+id/action_world_to_deck_cards"
+            app:destination="@id/deck_cards"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/world"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_world_to_gear"
+            app:destination="@id/gear"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/world"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/f2"
+        android:name="com.example.pp.F2"
+        android:label="fragment_f2"
+        tools:layout="@layout/fragment_f2" >
+        <action
+            android:id="@+id/action_f2_to_world"
+            app:destination="@id/world"
+            app:popUpTo="@id/f2"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_f2_to_gear"
+            app:destination="@id/gear"
+            app:popUpTo="@id/f2"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_f2_to_deck_cards"
+            app:destination="@id/deck_cards"
+            app:popUpTo="@id/f2"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/gear"
+        android:name="com.example.pp.gear"
+        android:label="fragment_gear"
+        tools:layout="@layout/fragment_gear" >
+        <action
+            android:id="@+id/action_gear_to_world"
+            app:destination="@id/world"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/gear"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_gear_to_deck_cards"
+            app:destination="@id/deck_cards"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/gear"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/deck_cards"
+        android:name="com.example.pp.Deck_cards"
+        android:label="fragment_deck_cards"
+        tools:layout="@layout/fragment_deck_cards" >
+        <action
+            android:id="@+id/action_deck_cards_to_world"
+            app:destination="@id/world"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/deck_cards"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_deck_cards_to_gear"
+            app:destination="@id/gear"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/deck_cards"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
