@@ -30,4 +30,8 @@ class Adapter_rooms(var myList: MutableList<Roomitem>): RecyclerView.Adapter<Ada
         this.myList = lista
         this.notifyDataSetChanged()
     }
+    fun delete(position:Int){
+        myList.removeAt(position)
+        notifyDataSetChanged()
+    }
 }

@@ -6,13 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResultListener
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -45,7 +41,13 @@ class world : Fragment() {
             navCo.navigate(R.id.action_world_to_fragment_create_rooms)
 
         }
-
+    val item=object:SwipeToDelete(this, 0, ItemTouchHelper.LEFT){
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            adapter.delete(viewHolder.adapterPosition)
+        }
+    }
+        val itemTouchHelper=ItemTouchHelper(item)
+        itemTouchHelper.attachToRecyclerView(recycler_view_rooms)
 
 
         return view
