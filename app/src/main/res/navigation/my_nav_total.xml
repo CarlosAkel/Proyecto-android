@@ -23,6 +23,9 @@
             app:exitAnim="@android:anim/slide_in_left"
             app:popUpTo="@id/world"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_world_to_fragment_create_rooms"
+            app:destination="@id/fragment_create_rooms" />
     </fragment>
     <fragment
         android:id="@+id/f2"
@@ -85,4 +88,9 @@
             app:popUpTo="@id/deck_cards"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_create_rooms"
+        android:name="com.example.pp.fragment_create_rooms"
+        android:label="fragment_create_rooms"
+        tools:layout="@layout/fragment_create_rooms" />
 </navigation>
