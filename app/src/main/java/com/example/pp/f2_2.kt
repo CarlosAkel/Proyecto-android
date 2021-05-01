@@ -1,6 +1,7 @@
 package com.example.pp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,10 +29,13 @@ class f2_2 : Fragment() {
         val but1 = view.findViewById<TextView>(R.id.textView16)
         val but2 = view.findViewById<TextView>(R.id.textView17)
         val but3 = view.findViewById<TextView>(R.id.textView18)
+
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragment3) as NavHostFragment
+        Log.d("tag4",navHostFragment.navController.currentDestination?.id.toString())
 
         but1.setOnClickListener{
             //Deck
+            Log.d("tag",navHostFragment.navController.currentDestination?.id.toString())
             if (clicked1 == false){
                 navHostFragment.navController.navigate(R.id.action_f2_to_deck_cards)
                 clicked1 = true
@@ -56,7 +60,7 @@ class f2_2 : Fragment() {
         }
 
         but2.setOnClickListener {
-
+            Log.d("tag2",navHostFragment.navController.currentDestination?.id.toString())
             if (clicked1 == false){
                 navHostFragment.navController.navigate(R.id.action_f2_to_world)
                 clicked1 = true
@@ -86,6 +90,7 @@ class f2_2 : Fragment() {
 
         }
         but3.setOnClickListener{
+            Log.d("tag3",navHostFragment.navController.currentDestination?.id.toString())
             if(clicked1 == false){
                 navHostFragment.navController.navigate(R.id.action_f2_to_gear)
                 clicked1 = true

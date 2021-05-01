@@ -87,6 +87,9 @@
             app:exitAnim="@android:anim/slide_in_left"
             app:popUpTo="@id/deck_cards"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_deck_cards_to_show_Card"
+            app:destination="@id/show_Card" />
     </fragment>
     <fragment
         android:id="@+id/fragment_create_rooms"
@@ -96,5 +99,15 @@
         <action
             android:id="@+id/action_fragment_create_rooms_to_world"
             app:destination="@id/world" />
+    </fragment>
+    <fragment
+        android:id="@+id/show_Card"
+        android:name="com.example.pp.Show_Card"
+        android:label="fragment_show__card"
+        tools:layout="@layout/fragment_show__card" >
+        <argument
+            android:name="number"
+            app:argType="string"
+            android:defaultValue="hola" />
     </fragment>
 </navigation>

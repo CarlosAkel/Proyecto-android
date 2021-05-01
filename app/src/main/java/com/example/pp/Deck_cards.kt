@@ -11,12 +11,13 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
-class Deck_cards : Fragment() {
+class Deck_cards : Fragment(),Show {
 
     private val viewModel: GeneralViewModel by activityViewModels()
 
@@ -48,25 +49,30 @@ class Deck_cards : Fragment() {
         try {
             when {
                 viewModel.spin == "Standard" -> {
-                    val adapter = Adapter(standard)
+
+                    val adapter = Adapter(standard,view)
+                    //adapter.show = activity as Show
                     recycler_view.adapter = adapter
                 }
                 viewModel.spin == "T-Shirt" -> {
-                    val adapter = Adapter(T_shirt)
+                    val adapter = Adapter(T_shirt,view)
+                    //adapter.show = activity as Show
                     recycler_view.adapter = adapter
                 }
                 viewModel.spin == "Fibonacci" -> {
-                    val adapter = Adapter(Fibonacci)
+                    val adapter = Adapter(Fibonacci,view)
+                    //adapter.show = activity as Show
                     recycler_view.adapter = adapter
                 }
                 viewModel.spin == "Hours" -> {
-                    val adapter = Adapter(Hours)
+                    val adapter = Adapter(Hours,view)
+                    //adapter.show = activity as Show
                     recycler_view.adapter = adapter
                 }
             }
         }
         catch (e: Exception){
-            val adapter = Adapter(standard)
+            val adapter = Adapter(standard,view)
             recycler_view.adapter = adapter
 
         }
@@ -87,6 +93,11 @@ class Deck_cards : Fragment() {
 
 
         return view
+    }
+
+    override fun onClickItem(item: Any) {
+
+        //navHostFragment.navController.navigate(R.id.action_deck_cards_to_show_Card)
     }
 
 

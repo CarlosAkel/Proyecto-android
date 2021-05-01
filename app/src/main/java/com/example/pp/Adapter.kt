@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter(var mylist: MutableList<GeneralItem>) : RecyclerView.Adapter<Adapter.ExampleViewHolder>() {
+class Adapter(var mylist: MutableList<GeneralItem>,var show :View) : RecyclerView.Adapter<Adapter.ExampleViewHolder>() {
 
+    //lateinit var show: Show
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
         val itemView= LayoutInflater.from(parent.context).inflate(R.layout.cards,parent,false)
         return ExampleViewHolder(itemView)
@@ -18,7 +20,16 @@ class Adapter(var mylist: MutableList<GeneralItem>) : RecyclerView.Adapter<Adapt
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
 
         val currentItem= mylist[position]
+        //val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         holder.textView1.text = currentItem.num
+
+        holder.itemView.setOnClickListener {
+            //show.onClickItem(currentItem)
+            val action = Deck_cardsDirections.actionDeckCardsToShowCard()
+            action.number = currentItem.num
+            Navigation.findNavController(show).navigate(action)
+            //show.navigate(R.id.action_deck_cards_to_show_Card)
+        }
         //holder.textView2.text = currentItem.number
     }
 
@@ -31,5 +42,7 @@ class Adapter(var mylist: MutableList<GeneralItem>) : RecyclerView.Adapter<Adapt
         this.mylist = lista
         this.notifyDataSetChanged()
     }
+
+
 
 }
