@@ -92,5 +92,9 @@
         android:id="@+id/fragment_create_rooms"
         android:name="com.example.pp.fragment_create_rooms"
         android:label="fragment_create_rooms"
-        tools:layout="@layout/fragment_create_rooms" />
+        tools:layout="@layout/fragment_create_rooms" >
+        <action
+            android:id="@+id/action_fragment_create_rooms_to_world"
+            app:destination="@id/world" />
+    </fragment>
 </navigation>

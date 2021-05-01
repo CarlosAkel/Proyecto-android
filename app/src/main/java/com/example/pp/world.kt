@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -24,6 +25,13 @@ class world : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_world, container, false)
+        setFragmentResultListener("key"){key, bundle->
+            val nombre= bundle.getString("nombre")
+            val password=bundle.getString("password")
+            val roomitem=Roomitem(nombre.toString(),password.toString())
+            list_rooms.add(roomitem)
+
+        }
         val recycler_view_rooms=view.findViewById<RecyclerView>(R.id.rec_rooms)
         val adapter=Adapter_rooms(list_rooms)
         val linearLayoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL, true)
