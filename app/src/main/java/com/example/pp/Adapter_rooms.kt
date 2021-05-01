@@ -1,5 +1,6 @@
 package com.example.pp
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +18,11 @@ class Adapter_rooms(var myList: MutableList<Roomitem>): RecyclerView.Adapter<Ada
     override fun onBindViewHolder(holder:ExampleViewHolder, position: Int) {
     val currentItem=myList[position]
         holder.TexTview1.text=currentItem.name
+        holder.TexTview1.paintFlags=holder.TexTview1.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+
     }
     class ExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val TexTview1: TextView=itemView.findViewById(R.id.editTextRoom)
+        val TexTview1: TextView=itemView.findViewById(R.id.textView_name)
 
         //val textView2: TextView = itemView.findViewById(R.id.textView2)
     }

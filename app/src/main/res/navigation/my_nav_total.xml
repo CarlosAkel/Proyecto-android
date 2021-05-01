@@ -25,7 +25,11 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_world_to_fragment_create_rooms"
-            app:destination="@id/fragment_create_rooms" />
+            app:destination="@id/fragment_create_rooms"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/world"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/f2"
@@ -95,6 +99,10 @@
         tools:layout="@layout/fragment_create_rooms" >
         <action
             android:id="@+id/action_fragment_create_rooms_to_world"
-            app:destination="@id/world" />
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:destination="@id/world"
+            app:popUpTo="@id/fragment_create_rooms"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
