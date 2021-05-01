@@ -107,6 +107,12 @@
             app:destination="@id/world"
             app:popUpTo="@id/fragment_create_rooms"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_fragment_create_rooms_to_deck_cards"
+            app:destination="@id/deck_cards" />
+        <action
+            android:id="@+id/action_fragment_create_rooms_to_gear"
+            app:destination="@id/gear" />
     </fragment>
     <fragment
         android:id="@+id/show_Card"
@@ -117,5 +123,14 @@
             android:name="number"
             app:argType="string"
             android:defaultValue="hola" />
+        <action
+            android:id="@+id/action_show_Card_to_deck_cards"
+            app:destination="@id/deck_cards" />
+        <action
+            android:id="@+id/action_show_Card_to_world"
+            app:destination="@id/world" />
+        <action
+            android:id="@+id/action_show_Card_to_gear"
+            app:destination="@id/gear" />
     </fragment>
 </navigation>

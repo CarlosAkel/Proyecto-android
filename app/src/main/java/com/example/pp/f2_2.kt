@@ -31,26 +31,29 @@ class f2_2 : Fragment() {
         val but3 = view.findViewById<TextView>(R.id.textView18)
 
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragment3) as NavHostFragment
-        Log.d("tag4",navHostFragment.navController.currentDestination?.id.toString())
+        //Log.d("tag4",navHostFragment.navController.currentDestination?.id.toString())
 
         but1.setOnClickListener{
             //Deck
-            Log.d("tag",navHostFragment.navController.currentDestination?.id.toString())
-            if (clicked1 == false){
-                navHostFragment.navController.navigate(R.id.action_f2_to_deck_cards)
-                clicked1 = true
-            }
-            else {
-                    try{
-
-                        navHostFragment.navController.navigate(R.id.action_gear_to_deck_cards)
-
-                    }
-                    catch (e: Exception){
-                        navHostFragment.navController.navigate(R.id.action_world_to_deck_cards)
-
-                    }
-
+            var dest = navHostFragment.navController.currentDestination?.label.toString()
+            Log.d("tag",navHostFragment.navController.currentDestination?.label.toString())
+            when {
+                clicked1 == false -> {
+                    navHostFragment.navController.navigate(R.id.action_f2_to_deck_cards)
+                    clicked1 = true
+                }
+                dest == "fragment_world" -> {
+                    navHostFragment.navController.navigate(R.id.action_world_to_deck_cards)
+                }
+                dest == "fragment_gear" -> {
+                    navHostFragment.navController.navigate(R.id.action_gear_to_deck_cards)
+                }
+                dest == "fragment_show__card"->{
+                    navHostFragment.navController.navigate(R.id.action_show_Card_to_deck_cards)
+                }
+                dest == "fragment_create_rooms"->{
+                    navHostFragment.navController.navigate(R.id.action_fragment_create_rooms_to_deck_cards)
+                }
             }
             but1.setBackgroundResource(R.drawable.ic_white_cards)
             but2.setBackgroundResource(R.drawable.ic_world)
@@ -60,23 +63,29 @@ class f2_2 : Fragment() {
         }
 
         but2.setOnClickListener {
-            Log.d("tag2",navHostFragment.navController.currentDestination?.id.toString())
-            if (clicked1 == false){
-                navHostFragment.navController.navigate(R.id.action_f2_to_world)
-                clicked1 = true
-            }
-            else{
+            var dest = navHostFragment.navController.currentDestination?.label.toString()
 
-
-                try{
-
+            Log.d("tag2",dest)
+            when {
+                clicked1 == false -> {
+                    navHostFragment.navController.navigate(R.id.action_f2_to_world)
+                    clicked1 = true
+                }
+                dest == "fragment_gear" -> {
                     navHostFragment.navController.navigate(R.id.action_gear_to_world)
-
                 }
-                catch (e: Exception){
+                dest == "fragment_deck_cards" -> {
                     navHostFragment.navController.navigate(R.id.action_deck_cards_to_world)
-
                 }
+                dest == "fragment_show__card"->{
+                    navHostFragment.navController.navigate(R.id.action_show_Card_to_world)
+                }
+                dest == "fragment_create_rooms"->{
+                    navHostFragment.navController.navigate(R.id.action_fragment_create_rooms_to_world)
+                }
+
+
+                //Navigation.findNavController(view).navigate(R.id.action_f2_to_world)
             }
 
             but1.setBackgroundResource(R.drawable.ic_action_name)
@@ -90,23 +99,24 @@ class f2_2 : Fragment() {
 
         }
         but3.setOnClickListener{
-            Log.d("tag3",navHostFragment.navController.currentDestination?.id.toString())
-            if(clicked1 == false){
-                navHostFragment.navController.navigate(R.id.action_f2_to_gear)
-                clicked1 = true
-
-            }
-            else{
-
-
-                try{
-
-                    navHostFragment.navController.navigate(R.id.action_deck_cards_to_gear)
+            var dest = navHostFragment.navController.currentDestination?.label.toString()
+            when {
+                clicked1 == false -> {
+                    navHostFragment.navController.navigate(R.id.action_f2_to_gear)
+                    clicked1 = true
 
                 }
-                catch (e: Exception){
+                dest == "fragment_deck_cards" -> {
+                    navHostFragment.navController.navigate(R.id.action_deck_cards_to_gear)
+                }
+                dest == "fragment_world" -> {
                     navHostFragment.navController.navigate(R.id.action_world_to_gear)
-
+                }
+                dest == "fragment_show__card"->{
+                    navHostFragment.navController.navigate(R.id.action_show_Card_to_gear)
+                }
+                dest == "fragment_create_rooms"->{
+                    navHostFragment.navController.navigate(R.id.action_fragment_create_rooms_to_gear)
                 }
             }
 
