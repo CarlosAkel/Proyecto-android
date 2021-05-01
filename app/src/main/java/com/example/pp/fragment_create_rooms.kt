@@ -1,5 +1,6 @@
 package com.example.pp
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,8 +25,21 @@ class fragment_create_rooms : Fragment() {
         btn.setOnClickListener {
             val nombre=view.findViewById<TextInputEditText>(R.id.textinputnombre).text.toString()
             val password=view.findViewById<TextInputEditText>(R.id.textinputpassword).text.toString()
-            viewModel.lista.add(Roomitem(nombre,password))
-            navCo.navigate(R.id.action_fragment_create_rooms_to_world)
+            if(nombre.isEmpty() && password.isEmpty()){
+
+            }
+            else if(nombre.isEmpty() && password.isNotEmpty()){
+                val e= view.findViewById<TextInputEditText>(R.id.textinputnombre)
+                e.setBackgroundColor(Color.RED)
+            }
+            else if(nombre.isNotEmpty() && password.isEmpty()){
+                val e= view.findViewById<TextInputEditText>(R.id.textinputpassword)
+                e.setBackgroundColor(Color.RED)
+            }
+            else {
+                viewModel.lista.add(Roomitem(nombre, password))
+                navCo.navigate(R.id.action_fragment_create_rooms_to_world)
+            }
         }
         return view
     }
