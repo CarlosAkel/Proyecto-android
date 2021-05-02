@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Deck_cards"
-    >
+    android:background="@drawable/fondo3"
+    tools:context=".Deck_cards">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"
