@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.findFragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -15,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment
 
 
 class f2_2 : Fragment() {
+    private val viewModel: GeneralViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -100,6 +103,10 @@ class f2_2 : Fragment() {
         }
         but3.setOnClickListener{
             var dest = navHostFragment.navController.currentDestination?.label.toString()
+
+            //val spinner = view.findViewById<Spinner>(R.id.spinner)
+            //spinner?.setSelection(viewModel.spinPos)
+
             when {
                 !clicked1 -> {
                     navHostFragment.navController.navigate(R.id.action_f2_to_gear)

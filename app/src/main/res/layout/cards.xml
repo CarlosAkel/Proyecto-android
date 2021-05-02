@@ -7,13 +7,16 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="155dp"
-        android:layout_height="50dp"
-        android:text="TextView"
-        android:textSize="36sp"
+        android:layout_width="126dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/card_back"
+        android:gravity="center"
+        android:text="cafe"
+        android:textSize="58sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
