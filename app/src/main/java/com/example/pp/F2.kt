@@ -24,8 +24,6 @@ class F2 : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_f2, container, false)
 
-        //view.findViewById<TextView>(R.id.textView2).setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_f2_to_f1) }
-
 
 
 

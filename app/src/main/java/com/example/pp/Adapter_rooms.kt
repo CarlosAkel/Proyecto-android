@@ -24,11 +24,6 @@ class Adapter_rooms(var myList: MutableList<Roomitem>): RecyclerView.Adapter<Ada
     class ExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val TexTview1: TextView=itemView.findViewById(R.id.textView_name)
 
-        //val textView2: TextView = itemView.findViewById(R.id.textView2)
-    }
-    fun p(lista: MutableList<Roomitem>){
-        this.myList = lista
-        this.notifyDataSetChanged()
     }
     fun delete(position:Int){
         myList.removeAt(position)

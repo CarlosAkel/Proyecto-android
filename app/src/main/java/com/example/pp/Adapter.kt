@@ -25,11 +25,9 @@ class Adapter(var mylist: MutableList<GeneralItem>,var show :View) : RecyclerVie
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
 
         val currentItem= mylist[position]
-        //val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         holder.textView1.text = currentItem.num
-        //holder.itemView.layout(1,1,1,1)
         contador +=1
-        //Log.d("dadasdasasds",holder.itemView.measuredWidthAndState.toString())
+
 
         if(mylist.size == 13 && (contador == 13)){//Standard
             holder.itemView.translationX = (ancho/3).toFloat()
@@ -43,32 +41,32 @@ class Adapter(var mylist: MutableList<GeneralItem>,var show :View) : RecyclerVie
             holder.itemView.translationX = (ancho/6).toFloat()
 
         }
+        if (currentItem.num == "Cafe"){
+            holder.textView1.text = ""
+            holder.textView2.setBackgroundResource(R.drawable.coffe)
+        }
+        if  (currentItem.num == "INF"){
+            holder.textView1.text = ""
+            holder.textView2.setBackgroundResource(R.drawable.inf3)
+        }
 
 
 
-        //holder.itemView.
 
-        //Log.d("das",holder.layoutPosition.toString())
 
         holder.itemView.setOnClickListener {
-            //show.onClickItem(currentItem)
             val action = Deck_cardsDirections.actionDeckCardsToShowCard()
             action.number = currentItem.num
             Navigation.findNavController(show).navigate(action)
-            //show.navigate(R.id.action_deck_cards_to_show_Card)
         }
-        //holder.textView2.text = currentItem.number
     }
 
     class ExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val textView1: TextView = itemView.findViewById(R.id.textView3)
-        //val textView2: TextView = itemView.findViewById(R.id.textView2)
+        val textView2: TextView = itemView.findViewById(R.id.textView8)
     }
 
-    fun p(lista: MutableList<GeneralItem>){
-        this.mylist = lista
-        this.notifyDataSetChanged()
-    }
+
 
 
 

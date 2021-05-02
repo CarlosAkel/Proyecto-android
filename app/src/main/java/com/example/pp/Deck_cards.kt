@@ -24,17 +24,17 @@ class Deck_cards : Fragment(),Show {
 
     private val viewModel: GeneralViewModel by activityViewModels()
 
-    val standard = mutableListOf<GeneralItem>(GeneralItem("0"),GeneralItem("1/2"),GeneralItem("2"),
+    private val standard = mutableListOf<GeneralItem>(GeneralItem("0"),GeneralItem("1/2"),GeneralItem("2"),
         GeneralItem("3"),GeneralItem("5"),GeneralItem("8"),GeneralItem("13"),GeneralItem("20"),GeneralItem("40"),
         GeneralItem("100"),
         GeneralItem("INF"),GeneralItem("?"),GeneralItem("Cafe")
     )
-    val T_shirt = mutableListOf<GeneralItem>(GeneralItem("XS"),GeneralItem("S"),GeneralItem("M"),GeneralItem("L"),GeneralItem("XL"),
+    private val T_shirt = mutableListOf<GeneralItem>(GeneralItem("XS"),GeneralItem("S"),GeneralItem("M"),GeneralItem("L"),GeneralItem("XL"),
         GeneralItem("XXL"),GeneralItem("?"),GeneralItem("Cafe"))
-    val Fibonacci =  mutableListOf<GeneralItem>(GeneralItem("0"),GeneralItem("1"),GeneralItem("2"),GeneralItem("3"),GeneralItem("5"),
+    private val Fibonacci =  mutableListOf<GeneralItem>(GeneralItem("0"),GeneralItem("1"),GeneralItem("2"),GeneralItem("3"),GeneralItem("5"),
         GeneralItem("8"),GeneralItem("13"),GeneralItem("21"),GeneralItem("34"),GeneralItem("55"),GeneralItem("89"),GeneralItem("144"),
         GeneralItem("INF"),GeneralItem("?"),GeneralItem("Cafe"))
-    val Hours =  mutableListOf<GeneralItem>(GeneralItem("0"),GeneralItem("1"),GeneralItem("2"),GeneralItem("3"),GeneralItem("4"),GeneralItem("6"),
+    private val Hours =  mutableListOf<GeneralItem>(GeneralItem("0"),GeneralItem("1"),GeneralItem("2"),GeneralItem("3"),GeneralItem("4"),GeneralItem("6"),
         GeneralItem("8"),GeneralItem("12"),GeneralItem("16"),GeneralItem("24"),GeneralItem("32"),GeneralItem("40"),GeneralItem("?"),GeneralItem("Cafe"))
 
 
@@ -44,31 +44,27 @@ class Deck_cards : Fragment(),Show {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_deck_cards, container, false)
         val recycler_view= view.findViewById<RecyclerView>(R.id.rec)
-        //val spin = view.findViewById<Spinner>(R.id.spinner)
 
-        //Log.d("ancho", Resources.getSystem().displayMetrics.widthPixels.toString())
         try {
-            when {
-                viewModel.spin == "Standard" -> {
+            when (viewModel.spin) {
+                "Standard" -> {
 
                     val adapter = Adapter(standard,view)
-                    //adapter.show = activity as Show
                     recycler_view.adapter = adapter
                 }
-                viewModel.spin == "T-Shirt" -> {
+                "T-Shirt" -> {
                     val adapter = Adapter(T_shirt,view)
                     //adapter.show = activity as Show
                     recycler_view.adapter = adapter
                 }
-                viewModel.spin == "Fibonacci" -> {
+                "Fibonacci" -> {
                     val adapter = Adapter(Fibonacci,view)
                     //adapter.show = activity as Show
                     recycler_view.adapter = adapter
                 }
-                viewModel.spin == "Hours" -> {
+                "Hours" -> {
                     val adapter = Adapter(Hours,view)
                     //adapter.show = activity as Show
                     recycler_view.adapter = adapter
@@ -82,17 +78,9 @@ class Deck_cards : Fragment(),Show {
         }
 
 
-        //recycler_view.layoutManager = GridLayoutManager(context, 2)
         recycler_view.setHasFixedSize(true)
-
-        //recycler_view.layoutManager  = GridLayoutManager.getChildMeasureSpec()
-        //recycler_view.layoutManager = LinearLayoutManager(activity)
        recycler_view.layoutManager = GridLayoutManager(context, 3)
 
-
-
-
-        //recycler_view.layoutManager= LinearLayoutManager(activity)
 
 
 

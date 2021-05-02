@@ -29,17 +29,15 @@ class f2_2 : Fragment() {
 
         var clicked1 = false
 
-        val but1 = view.findViewById<TextView>(R.id.textView16)
-        val but2 = view.findViewById<TextView>(R.id.textView17)
-        val but3 = view.findViewById<TextView>(R.id.textView18)
+        val but1 = view.findViewById<TextView>(R.id.textView16)//Cards
+        val but2 = view.findViewById<TextView>(R.id.textView17)//World
+        val but3 = view.findViewById<TextView>(R.id.textView18)//Gear
 
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragment3) as NavHostFragment
-        //Log.d("tag4",navHostFragment.navController.currentDestination?.id.toString())
 
         but1.setOnClickListener{
             //Deck
             var dest = navHostFragment.navController.currentDestination?.label.toString()
-            Log.d("tag",navHostFragment.navController.currentDestination?.label.toString())
             when {
                 !clicked1 -> {
                     navHostFragment.navController.navigate(R.id.action_f2_to_deck_cards)
@@ -67,8 +65,6 @@ class f2_2 : Fragment() {
 
         but2.setOnClickListener {
             var dest = navHostFragment.navController.currentDestination?.label.toString()
-
-            Log.d("tag2",dest)
             when {
                 !clicked1 -> {
                     navHostFragment.navController.navigate(R.id.action_f2_to_world)
@@ -88,7 +84,6 @@ class f2_2 : Fragment() {
                 }
 
 
-                //Navigation.findNavController(view).navigate(R.id.action_f2_to_world)
             }
 
             but1.setBackgroundResource(R.drawable.ic_action_name)
@@ -98,14 +93,10 @@ class f2_2 : Fragment() {
 
 
 
-            //Navigation.findNavController(view).navigate(R.id.action_f2_to_world)
-
         }
         but3.setOnClickListener{
             var dest = navHostFragment.navController.currentDestination?.label.toString()
 
-            //val spinner = view.findViewById<Spinner>(R.id.spinner)
-            //spinner?.setSelection(viewModel.spinPos)
 
             when {
                 !clicked1 -> {

@@ -15,7 +15,6 @@ class Show_Card : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val args: Show_CardArgs by navArgs()
-        // Inflate the layout for this fragment
 
 
         val mynumber = args.number
@@ -26,7 +25,22 @@ class Show_Card : Fragment() {
 
         val text = view.findViewById<TextView>(R.id.textView6)
 
-        text.text = mynumber
+        when (mynumber) {
+            "Cafe" -> {
+                text.setBackgroundResource(R.drawable.coffe)
+                text.text = ""
+            }
+            "INF" -> {
+                text.setBackgroundResource(R.drawable.inf3)
+                text.text = ""
+            }
+            else -> {
+                text.text = mynumber
+            }
+        }
+
+
+
 
         return view
     }

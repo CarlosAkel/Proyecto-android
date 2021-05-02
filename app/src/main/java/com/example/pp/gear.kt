@@ -22,17 +22,6 @@ class gear : Fragment() {
 
         val view =  inflater.inflate(R.layout.fragment_gear, container, false)
 
-        val spinner = view.findViewById<Spinner>(R.id.spinner)
-
-
-
-
-
-        //Log.d("pos",viewModel.spinPos.toString())
-
-
-        //val languages = resources.getStringArray(R.array.decks)
-
 
         return view
     }
@@ -44,10 +33,6 @@ class gear : Fragment() {
 
 
 
-        //spinner.setSelection(viewModel.spinPos)
-        //Log.d("pos",viewModel.spinPos.toString())
-
-
         spinner.adapter = context?.let {
             ArrayAdapter(
                 it,
@@ -55,7 +40,6 @@ class gear : Fragment() {
                 resources.getStringArray(R.array.decks)
             )
         } as SpinnerAdapter
-        //Log.d("pos",viewModel.spinPos.toString())
         spinner.setSelection(viewModel.spinPos)
 
 
@@ -73,13 +57,6 @@ class gear : Fragment() {
                 id: Long
             ) {
                 viewModel.changeSpin(spinner.selectedItem.toString())
-
-
-
-                //spinner.setSelection(viewModel.spinPos)
-                //spinner.setSelection(2)
-
-                //Log.d("pos",spinner.selectedItemId.toString())
                 viewModel.spinPos = spinner.selectedItemId.toInt()
 
                 }
