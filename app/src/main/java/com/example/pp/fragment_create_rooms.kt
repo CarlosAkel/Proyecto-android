@@ -30,11 +30,11 @@ class fragment_create_rooms : Fragment() {
             }
             else if(nombre.isEmpty() && password.isNotEmpty()){
                 val e= view.findViewById<TextInputEditText>(R.id.textinputnombre)
-                e.setBackgroundColor(Color.RED)
+                e.setBackgroundColor(Color.parseColor("#f44336"))
             }
             else if(nombre.isNotEmpty() && password.isEmpty()){
                 val e= view.findViewById<TextInputEditText>(R.id.textinputpassword)
-                e.setBackgroundColor(Color.RED)
+                e.setBackgroundColor(Color.parseColor("#f44336"))
             }
             else {
                 viewModel.lista.add(Roomitem(nombre, password))
