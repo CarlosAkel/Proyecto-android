@@ -38,7 +38,7 @@ class f2_2 : Fragment() {
             var dest = navHostFragment.navController.currentDestination?.label.toString()
             Log.d("tag",navHostFragment.navController.currentDestination?.label.toString())
             when {
-                clicked1 == false -> {
+                !clicked1 -> {
                     navHostFragment.navController.navigate(R.id.action_f2_to_deck_cards)
                     clicked1 = true
                 }
@@ -67,7 +67,7 @@ class f2_2 : Fragment() {
 
             Log.d("tag2",dest)
             when {
-                clicked1 == false -> {
+                !clicked1 -> {
                     navHostFragment.navController.navigate(R.id.action_f2_to_world)
                     clicked1 = true
                 }
@@ -101,7 +101,7 @@ class f2_2 : Fragment() {
         but3.setOnClickListener{
             var dest = navHostFragment.navController.currentDestination?.label.toString()
             when {
-                clicked1 == false -> {
+                !clicked1 -> {
                     navHostFragment.navController.navigate(R.id.action_f2_to_gear)
                     clicked1 = true
 

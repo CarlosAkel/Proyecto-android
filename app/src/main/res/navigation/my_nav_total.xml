@@ -93,7 +93,9 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_deck_cards_to_show_Card"
-            app:destination="@id/show_Card" />
+            app:destination="@id/show_Card"
+            app:popUpTo="@id/deck_cards"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/fragment_create_rooms"
@@ -109,10 +111,14 @@
             app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_fragment_create_rooms_to_deck_cards"
-            app:destination="@id/deck_cards" />
+            app:destination="@id/deck_cards"
+            app:popUpTo="@id/fragment_create_rooms"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_fragment_create_rooms_to_gear"
-            app:destination="@id/gear" />
+            app:destination="@id/gear"
+            app:popUpTo="@id/fragment_create_rooms"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/show_Card"
@@ -125,12 +131,16 @@
             android:defaultValue="hola" />
         <action
             android:id="@+id/action_show_Card_to_deck_cards"
-            app:destination="@id/deck_cards" />
+            app:destination="@id/deck_cards"
+            app:popUpTo="@id/show_Card"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_show_Card_to_world"
-            app:destination="@id/world" />
+            app:popUpTo="@id/show_Card"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_show_Card_to_gear"
-            app:destination="@id/gear" />
+            app:popUpTo="@id/show_Card"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
