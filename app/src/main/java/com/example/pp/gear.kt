@@ -81,41 +81,7 @@ class gear : Fragment() {
 
                 //Log.d("pos",spinner.selectedItemId.toString())
                 viewModel.spinPos = spinner.selectedItemId.toInt()
-                /*
-                if(viewModel.spinPos == 0){
-                    spinner.setSelection(0)
-                }
-                else if (viewModel.spinPos == 1){
-                    spinner.setSelection(1)
-                }
-                else if (viewModel.spinPos == 2){
-                    spinner.setSelection(2)
-                }
-                else if (viewModel.spinPos == 3){
-                    spinner.setSelection(3)
-                }*/
 
-
-
-
-                //Log.d("pos",viewModel.spinPos.toString())
-                //spinner.setSelection(viewModel.spinPos)
-                //
-                //Log.d("pos",spinner.selectedItemPosition.toString())
-                /*
-                when {
-                    spinner.selectedItem.toString() == "Standard" -> {
-                        spinner.setSelection(0)
-                    }
-                    spinner.selectedItem.toString() ==  "T-Shirt" -> {
-                        spinner.setSelection(1)
-                    }
-                    spinner.selectedItem.toString() ==  "Fibonacci" -> {
-                        spinner.setSelection(2)
-                    }
-                    spinner.selectedItem.toString() ==  "Hours" -> {
-                        spinner.setSelection(3)
-                    }*/
                 }
 
             }

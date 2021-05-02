@@ -12,15 +12,15 @@
         <action
             android:id="@+id/action_world_to_deck_cards"
             app:destination="@id/deck_cards"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_in_left"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/world"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_world_to_gear"
             app:destination="@id/gear"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_in_left"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/world"
             app:popUpToInclusive="true" />
         <action
@@ -60,15 +60,15 @@
         <action
             android:id="@+id/action_gear_to_world"
             app:destination="@id/world"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_in_left"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/gear"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_gear_to_deck_cards"
             app:destination="@id/deck_cards"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_in_left"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/gear"
             app:popUpToInclusive="true" />
     </fragment>
@@ -80,15 +80,15 @@
         <action
             android:id="@+id/action_deck_cards_to_world"
             app:destination="@id/world"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_in_left"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/deck_cards"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_deck_cards_to_gear"
             app:destination="@id/gear"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_in_left"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/deck_cards"
             app:popUpToInclusive="true" />
         <action
