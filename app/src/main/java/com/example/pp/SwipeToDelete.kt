@@ -9,12 +9,14 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class SwipeToDelete(context: world, dragDir:Int, SwipeDir:Int ):ItemTouchHelper.SimpleCallback(dragDir,SwipeDir){
-
-    private val deleteIcon = ContextCompat.getDrawable(context.requireContext(), R.drawable.ic_baseline_delete_24)
-    private val inWidth = deleteIcon!!.intrinsicWidth
-    private val inHeight = deleteIcon!!.intrinsicHeight
+    private val delicono=ContextCompat.getDrawable(context.requireContext(),R.drawable.ic_baseline_delete_24)
+    private val width =delicono!!.intrinsicWidth
+    private val height =delicono!!.intrinsicHeight
     private val background = ColorDrawable()
-    private val backgroundColor = Color.parseColor("#f44336")
+    private val backgroundColor=Color.parseColor("#f44336")
+
+
+
     val icon = ContextCompat.getDrawable(context.requireContext(), R.drawable.ic_baseline_delete_24)!!
 
     override fun onMove(
@@ -33,8 +35,6 @@ abstract class SwipeToDelete(context: world, dragDir:Int, SwipeDir:Int ):ItemTou
                              dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
         val itemView = viewHolder.itemView
         val itemHeight = itemView.bottom - itemView.top
-
-        // Draw the red delete background
         background.color = backgroundColor
         background.setBounds(
                 itemView.right + dX.toInt(),
@@ -43,15 +43,11 @@ abstract class SwipeToDelete(context: world, dragDir:Int, SwipeDir:Int ):ItemTou
                 itemView.bottom
         )
         background.draw(c)
-
-        // Calculate position of delete icon
-        val iconTop = itemView.top + (itemHeight - inHeight) / 2
-        val iconMargin = (itemHeight - inHeight) / 2
-        val iconLeft = itemView.right - iconMargin - inWidth
+        val iconTop = itemView.top + (itemHeight - height) / 2
+        val iconMargin = (itemHeight - height) / 2
+        val iconLeft = itemView.right - iconMargin - width
         val iconRight = itemView.right - iconMargin
-        val iconBottom = iconTop + inHeight
-
-        // Draw the delete icon
+        val iconBottom = iconTop + height
         icon.setBounds(iconLeft, iconTop, iconRight, iconBottom)
         icon.draw(c)
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
