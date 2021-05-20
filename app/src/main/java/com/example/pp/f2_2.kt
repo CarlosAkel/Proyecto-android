@@ -32,6 +32,7 @@ class f2_2 : Fragment() {
         val but1 = view.findViewById<TextView>(R.id.textView16)//Cards
         val but2 = view.findViewById<TextView>(R.id.textView17)//World
         val but3 = view.findViewById<TextView>(R.id.textView18)//Gear
+        val but4 = view.findViewById<TextView>(R.id.logout)//logout
 
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragment3) as NavHostFragment
 
@@ -123,6 +124,15 @@ class f2_2 : Fragment() {
             but3.setBackgroundResource(R.drawable.ic_white_gear)
 
         }
+
+        but4.setOnClickListener{
+
+            Navigation.findNavController(view).navigate(R.id.action_f2_23_to_f1)
+        }
+
+
+
+
         return view
     }
 

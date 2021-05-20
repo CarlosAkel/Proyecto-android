@@ -15,10 +15,26 @@
             app:destination="@id/f2_23"
             app:popUpTo="@id/f1"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_f1_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/f2_23"
         android:name="com.example.pp.f2_2"
         android:label="fragment_f2_2"
-        tools:layout="@layout/fragment_f2_2" />
+        tools:layout="@layout/fragment_f2_2" >
+        <action
+            android:id="@+id/action_f2_23_to_f1"
+            app:destination="@id/f1" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.pp.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_f1"
+            app:destination="@id/f1" />
+    </fragment>
 </navigation>

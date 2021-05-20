@@ -31,19 +31,20 @@
         android:id="@+id/textView16"
         android:layout_width="76dp"
         android:layout_height="70dp"
+        android:layout_marginEnd="23dp"
         android:background="@drawable/ic_action_name"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/textView17"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment3" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="76dp"
         android:layout_height="70dp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/ic_world"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/fragment3" />
 
@@ -51,9 +52,20 @@
         android:id="@+id/textView18"
         android:layout_width="76dp"
         android:layout_height="70dp"
+        android:layout_marginStart="100dp"
         android:background="@drawable/ic_gear"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="@+id/textView15"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/fragment3" />
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="76dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/ic_log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/fragment3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
