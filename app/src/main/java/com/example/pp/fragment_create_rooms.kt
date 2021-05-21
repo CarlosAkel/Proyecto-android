@@ -9,13 +9,21 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.pp.base.BaseViewModel
+import com.example.pp.base.Sala
 import com.google.android.material.textfield.TextInputEditText
 
 class fragment_create_rooms : Fragment() {
     private val viewModel: GeneralViewModel by activityViewModels()
+
+    private lateinit var salaview: BaseViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+
+        salaview = ViewModelProvider(this).get(BaseViewModel::class.java)
         // Inflate the layout for this fragment
 
         val view=inflater.inflate(R.layout.fragment_create_rooms, container, false)
@@ -41,7 +49,8 @@ class fragment_create_rooms : Fragment() {
                 e2.setBackgroundColor(Color.WHITE)
             }
             else {
-                viewModel.lista.add(Roomitem(nombre, password))
+                salaview.addProduct(Sala(0,nombre,password))
+                //viewModel.lista.add(Roomitem(nombre, password))
                 navCo.navigate(R.id.action_fragment_create_rooms_to_world)
             }
         }

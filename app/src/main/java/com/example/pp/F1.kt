@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
+import com.example.pp.base.BaseViewModel
 import com.example.pp.model.*
 
 
@@ -28,6 +29,8 @@ class F1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_f1, container, false)
+
+
 
 
 

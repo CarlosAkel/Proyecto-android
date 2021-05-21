@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 
 class GeneralViewModel(application: Application): AndroidViewModel(application) {
 
-    val lista = mutableListOf<Roomitem>()
+    //val lista = mutableListOf<Roomitem>()
     val currentlist: MutableLiveData<MutableList<Roomitem>> by lazy { MutableLiveData<MutableList<Roomitem>>()}
     var spin = "Standard"
     var spinPos = 0
