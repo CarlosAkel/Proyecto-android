@@ -28,10 +28,10 @@ class Adapter_rooms(val viewMod: BaseViewModel): RecyclerView.Adapter<Adapter_ro
         holder.TexTview1.text=currentItem.name
         holder.TexTview1.paintFlags=holder.TexTview1.paintFlags or Paint.UNDERLINE_TEXT_FLAG
 
-       // val item=object:SwipeToDelete(world(), 0, ItemTouchHelper.LEFT){
-         //   override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-           //     delete(currentItem)
-           // }
+        //val item=object:SwipeToDelete(world(), 0, ItemTouchHelper.LEFT){
+          //  override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            //    delete(currentItem)
+            //}
         //}
         //val itemTouchHelper=ItemTouchHelper(item)
         //itemTouchHelper.attachToRecyclerView()
@@ -46,8 +46,9 @@ class Adapter_rooms(val viewMod: BaseViewModel): RecyclerView.Adapter<Adapter_ro
         this.myList = contact
         notifyDataSetChanged()
     }
-    fun delete(sala: Sala){
-        viewMod.delete(sala)
+    fun delete(position: Int){
+        val currentItem=myList[position]
+        viewMod.delete(currentItem)
        // myList.removeAt(position)
         notifyDataSetChanged()
     }

@@ -1,5 +1,7 @@
 package com.example.pp
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -18,7 +20,7 @@ import androidx.navigation.fragment.NavHostFragment
 
 class f2_2 : Fragment() {
     private val viewModel: GeneralViewModel by activityViewModels()
-
+    lateinit var preferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,8 @@ class f2_2 : Fragment() {
         val but2 = view.findViewById<TextView>(R.id.textView17)//World
         val but3 = view.findViewById<TextView>(R.id.textView18)//Gear
         val but4 = view.findViewById<TextView>(R.id.logout)//logout
+        preferences=context?.getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)!!
+
 
         val navHostFragment = childFragmentManager.findFragmentById(R.id.fragment3) as NavHostFragment
 
@@ -126,9 +130,12 @@ class f2_2 : Fragment() {
         }
 
         but4.setOnClickListener{
-
+            val editor: SharedPreferences.Editor=preferences.edit()
+            editor.clear()
+            editor.apply()
             Navigation.findNavController(view).navigate(R.id.action_f2_23_to_f1)
         }
+
 
 
 

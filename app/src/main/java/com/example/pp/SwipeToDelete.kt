@@ -29,6 +29,7 @@ abstract class SwipeToDelete(context: world, dragDir:Int, SwipeDir:Int ):ItemTou
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
+
     }
 
     override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder,

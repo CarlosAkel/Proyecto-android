@@ -58,13 +58,14 @@ class world : Fragment() {
             navCo.navigate(R.id.action_world_to_fragment_create_rooms)
 
         }
-    //val item=object:SwipeToDelete(this, 0, ItemTouchHelper.LEFT){
-        //override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        //    adapter.delete(viewHolder.adapterPosition)
-      //  }
-    //}
-        //val itemTouchHelper=ItemTouchHelper(item)
-        //itemTouchHelper.attachToRecyclerView(recycler_view_rooms)
+    val item=object:SwipeToDelete(this, 0, ItemTouchHelper.LEFT){
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            var pos : Int =viewHolder.adapterPosition
+            adapter.delete(pos)
+        }
+    }
+        val itemTouchHelper=ItemTouchHelper(item)
+        itemTouchHelper.attachToRecyclerView(recycler_view_rooms)
 
 
         return view
