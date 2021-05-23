@@ -6,7 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.cards.view.*
+import kotlinx.android.synthetic.main.fragment_show__card.view.*
 
 class Show_Card : Fragment() {
 
@@ -39,11 +43,20 @@ class Show_Card : Fragment() {
             }
         }
 
+        view.textView6.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_show_Card_to_deck_cards)
+        }
+
+
+
 
 
 
         return view
     }
+
+
+
 
 
 }

@@ -54,7 +54,7 @@
         android:layout_marginTop="32dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="@+id/textView"

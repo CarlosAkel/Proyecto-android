@@ -2,6 +2,10 @@ package com.example.pp
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.net.NetworkInfo
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,12 +14,15 @@ import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.Navigation
 import com.example.pp.base.BaseViewModel
 import com.example.pp.model.*
+import java.io.IOException
 
 
 class F1 : Fragment() {
@@ -33,6 +40,9 @@ class F1 : Fragment() {
 
 
 
+        val connectionManager : ConnectivityManager = activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? =  connectionManager.activeNetworkInfo
+        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
 
         val checkbox = view.findViewById<CheckBox>(R.id.checkBox)
         sharedPreferences=context?.getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)!!
@@ -47,7 +57,18 @@ class F1 : Fragment() {
             val email = sharedPreferences.getString("Email", "")
             val password=sharedPreferences.getString("Password","")
             val myPost2=Login(email.toString(),password.toString())
-            viewModel.pushPost(myPost2)
+
+
+
+
+
+            if(isConnected){
+                viewModel.pushPost(myPost2)
+            }
+            else{
+                Toast.makeText(activity, "No Internet connection", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
 
@@ -65,31 +86,57 @@ class F1 : Fragment() {
             editor.putBoolean("CHECKBOX",checked)
             editor.apply()
             val myPost2 = Login(email,password)
-            viewModel.pushPost(myPost2)
+
+
+
+
+
+            if(isConnected){
+                viewModel.pushPost(myPost2)
+            }
+            else{
+                Toast.makeText(activity, "No Internet connection", Toast.LENGTH_SHORT).show()
+            }
+
 
         }
         view.findViewById<TextView>(R.id.SingIn).setOnClickListener{
 
-            Navigation.findNavController(view).navigate(R.id.action_f1_to_registrationFragment)
+
+            if(isConnected){
+                Navigation.findNavController(view).navigate(R.id.action_f1_to_registrationFragment)
+            }
+            else{
+                Toast.makeText(activity, "No Internet connection", Toast.LENGTH_SHORT).show()
+            }
+
+
 
         }
 
 
         viewModel.myResponse.observe(viewLifecycleOwner, Observer {response ->
-            if(response.isSuccessful){
-                Log.d("Main",response.body().toString())
-                Log.d("CORRECT",response.code().toString())
-                Log.d("Main3",response.message())
-                Navigation.findNavController(view).navigate(R.id.action_f1_to_f2_23)
-            }
-            else{
-                Log.d("ERROR",response.code().toString())
-                Toast.makeText(activity, "ERROR", Toast.LENGTH_SHORT).show();
-            }
+                if(response.isSuccessful){
+                    Log.d("Main",response.body().toString())
+                    Log.d("CORRECT",response.code().toString())
+                    Log.d("Main3",response.message())
+                    Navigation.findNavController(view).navigate(R.id.action_f1_to_f2_23)
+                }
+                else{
+                    Log.d("ERROR",response.code().toString())
+                    Toast.makeText(activity, "ERROR", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
         })
+
+
 
         return view
     }
+
 
 
 
