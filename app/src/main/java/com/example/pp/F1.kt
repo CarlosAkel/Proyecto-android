@@ -85,10 +85,13 @@ class F1 : Fragment() {
 
 
 
+
         view.findViewById<Button>(R.id.button).setOnClickListener {
 
             //viewModel2.spinPos =  sharedPreferences.getInt(viewModel2.email, 0)
-
+            val connectionManager= activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork: NetworkInfo? =  connectionManager.activeNetworkInfo
+            val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
 
             val email2 = view.findViewById<EditText>(R.id.Email).text.toString()
             val password2 = view.findViewById<EditText>(R.id.password).text.toString()
@@ -108,7 +111,9 @@ class F1 : Fragment() {
 
         }
         view.findViewById<TextView>(R.id.SingIn).setOnClickListener{
-
+            val connectionManager= activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork: NetworkInfo? =  connectionManager.activeNetworkInfo
+            val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
 
             if(isConnected){
                 Navigation.findNavController(view).navigate(R.id.action_f1_to_registrationFragment)
