@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.fragment.app.activityViewModels
 import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import android.widget.*
 
 
 class gear : Fragment() {
     private val viewModel: GeneralViewModel by activityViewModels()
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,6 +24,7 @@ class gear : Fragment() {
 
         val view =  inflater.inflate(R.layout.fragment_gear, container, false)
 
+        sharedPreferences=context?.getSharedPreferences("SHARED_PREF2", Context.MODE_PRIVATE)!!//new
 
         return view
     }
@@ -40,7 +43,21 @@ class gear : Fragment() {
                 resources.getStringArray(R.array.decks)
             )
         } as SpinnerAdapter
-        spinner.setSelection(viewModel.spinPos)
+
+
+
+        val email =viewModel.email
+        if (email == "") {
+            spinner.setSelection(0)
+        }
+        else if (email != null){
+            spinner.setSelection(viewModel.spinPos)
+        }
+
+
+
+
+
 
 
 
@@ -58,6 +75,9 @@ class gear : Fragment() {
             ) {
                 viewModel.changeSpin(spinner.selectedItem.toString())
                 viewModel.spinPos = spinner.selectedItemId.toInt()
+                val editor: SharedPreferences.Editor=sharedPreferences.edit()//new
+                editor.putInt(viewModel.email,viewModel.spinPos)//new
+                editor.apply()
 
                 }
 

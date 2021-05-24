@@ -12,6 +12,7 @@ class GeneralViewModel(application: Application): AndroidViewModel(application) 
 
     var spin = "Standard"
     var spinPos = 0
+    var email = "0"
 
     fun changeSpin(s:String){
         spin = s
