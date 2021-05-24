@@ -79,12 +79,6 @@ class F1 : Fragment() {
 
             val email = view.findViewById<EditText>(R.id.Email).text.toString()
             val password = view.findViewById<EditText>(R.id.password).text.toString()
-            val editor: SharedPreferences.Editor=sharedPreferences.edit()
-            val checked:Boolean=checkbox.isChecked
-            editor.putString("Email",email)
-            editor.putString("Password",password)
-            editor.putBoolean("CHECKBOX",checked)
-            editor.apply()
             val myPost2 = Login(email,password)
 
 
@@ -120,6 +114,15 @@ class F1 : Fragment() {
                     Log.d("Main",response.body().toString())
                     Log.d("CORRECT",response.code().toString())
                     Log.d("Main3",response.message())
+                    val email = view.findViewById<EditText>(R.id.Email).text.toString()
+                    val password = view.findViewById<EditText>(R.id.password).text.toString()
+                    val editor: SharedPreferences.Editor=sharedPreferences.edit()
+                    val checked:Boolean=checkbox.isChecked
+                    editor.putString("Email",email)
+                    editor.putString("Password",password)
+                    editor.putBoolean("CHECKBOX",checked)
+                    editor.apply()
+
                     Navigation.findNavController(view).navigate(R.id.action_f1_to_f2_23)
                 }
                 else{
